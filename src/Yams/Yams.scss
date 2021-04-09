@@ -5,11 +5,12 @@
     padding: 12px 24px;
     margin: 0 8px;
     background: none;
-    border: 2px solid rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--secondary-color);
+    color: var(--primary-color);
     border-radius: 12px;
 
     &:hover {
-      background: rgba(0, 0, 0, 0.05);
+      background: var(--tertiary-color);
       cursor: pointer;
     }
   }
@@ -58,11 +59,6 @@
 
     button {
       flex-grow: 1;
-
-      &:hover {
-        background: rgba(0, 0, 0, 0.05);
-        cursor: pointer;
-      }
 
       &.selected {
         border-color: rgb(247, 145, 116);

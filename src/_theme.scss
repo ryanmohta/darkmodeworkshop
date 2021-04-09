@@ -1,12 +1,18 @@
 @mixin light {
   body {
     --background-color: white;
+    --primary-color: black;
+    --secondary-color: rgba(0, 0, 0, 0.3);
+    --tertiary-color: rgba(0, 0, 0, 0.05);
   }
 }
 
 @mixin dark {
   body {
     --background-color: rgb(13, 17, 23);
+    --primary-color: rgba(255, 255, 255, 0.7);
+    --secondary-color: rgba(255, 255, 255, 0.3);
+    --tertiary-color: rgba(255, 255, 255, 0.05);
   }
 }
 

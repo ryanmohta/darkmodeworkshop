@@ -14,19 +14,24 @@ function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Yams</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
+        {
+        // <nav>
+        //   <ul>
+        //     <li>
+        //       <h3>Dim the Lights</h3>
+        //     </li>
+        //     <li>
+        //       <Link to="/">Yams</Link>
+        //     </li>
+        //     <li>
+        //       <Link to="/about">About</Link>
+        //     </li>
+        //     <li>
+        //       <Link to="/contact">Contact</Link>
+        //     </li>
+        //   </ul>
+        // </nav>
+      }
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
