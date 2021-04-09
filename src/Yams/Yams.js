@@ -1,5 +1,6 @@
 import React from 'react';
 import './Yams.css';
+import yams from './yams.jpg';
 import { yamQuestionData } from './YamQuestionData';
 
 class Yams extends React.Component {
@@ -52,6 +53,7 @@ class Yams extends React.Component {
           <h1>YAMS?</h1>
           <h2>By Ryam</h2>
         </div>
+        <img className="yam-image" src={yams}/>
         <div className="questions">
           { yamQuestionData.map((question, index) =>
             <Question
