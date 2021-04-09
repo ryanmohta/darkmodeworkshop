@@ -1,5 +1,19 @@
 .Yams {
-  .header {
+  button {
+    font-size: 24px;
+    padding: 12px 24px;
+    margin: 0 8px;
+    background: none;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+    }
+  }
+
+  .header, .results {
     text-align: center;
   }
 }
@@ -16,12 +30,6 @@
 
     button {
       flex-grow: 1;
-      background: none;
-      font-size: 24px;
-      padding: 12px 24px;
-      margin: 0 8px;
-      border: 2px solid rgba(0, 0, 0, 0.3);
-      border-radius: 12px;
 
       &:hover {
         background: rgba(0, 0, 0, 0.05);

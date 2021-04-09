@@ -43,6 +43,9 @@ class Yams extends React.Component {
               onQuestionSelected={this.onQuestionSelected} />
             )}
         </div>
+        <div className="results">
+          <button>How'd I do?</button>
+        </div>
       </div>
     );
   }
