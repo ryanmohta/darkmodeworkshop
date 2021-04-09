@@ -1,3 +1,4 @@
+import React from 'react';
 import './Yams.css';
 import { yamQuestionData } from './YamQuestionData';
 
@@ -14,21 +15,32 @@ function Yams() {
   );
 }
 
-function Question(props) {
-  function handleClick() {
-    console.log('this is:', this);
+class Question extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { selectedIndex: undefined };
   }
 
-  return (
-    <div className="Question">
-      <h3>{ props.data.question }</h3>
-      <div className="row">
-        { props.data.answers.map(answer =>
-          <button onClick={handleClick}>{ answer }</button>
-        )}
+  handleClick(index) {
+    this.setState({ selectedIndex: index });
+  }
+
+  render() {
+    return (
+      <div className="Question">
+        <h3>{ this.props.data.question }</h3>
+        <div className="row">
+          { this.props.data.answers.map((answer, index) =>
+            <button
+              key={index}
+              className={ this.state.selectedIndex === index ? 'selected' : '' }
+              onClick={() => this.handleClick(index)}
+            >{ answer }</button>
+          )}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Yams;
