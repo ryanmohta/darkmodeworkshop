@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
 
-import Home from './Home';
+import Yams from './Yams';
 import About from './About';
 import Contact from './Contact';
 
@@ -18,7 +18,7 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Yams</Link>
             </li>
             <li>
               <Link to="/about">About</Link>
@@ -39,7 +39,7 @@ function App() {
             <Contact />
           </Route>
           <Route path="/">
-            <Home />
+            <Yams />
           </Route>
         </Switch>
       </div>
