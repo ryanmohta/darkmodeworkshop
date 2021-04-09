@@ -10,7 +10,9 @@ function Yams() {
         <h1>YAMS?</h1>
         <h2>By Ryam</h2>
       </div>
-      <Question data={yamQuestionData[0]} />
+      <div className="questions">
+        { yamQuestionData.map(question => <Question data={question} />) }
+      </div>
     </div>
   );
 }
