@@ -8,6 +8,24 @@ class Yams extends React.Component {
     this.state = { selectedAnswers: new Array(10).fill(undefined) };
   }
 
+  onQuestionSelected = (questionIndex, selectedIndex) => {
+    this.setState(state => {
+      const selectedAnswers = state.selectedAnswers.map((item, j) => {
+        if (j === questionIndex) {
+          return selectedIndex;
+        }
+        else {
+          return item;
+        }
+      });
+
+      return {
+        selectedAnswers
+      };
+    });
+  };
+
+
   render() {
     return (
       <div className="Yams">
@@ -17,7 +35,13 @@ class Yams extends React.Component {
           <h2>By Ryam</h2>
         </div>
         <div className="questions">
-          { yamQuestionData.map(question => <Question data={question} />) }
+          { yamQuestionData.map((question, index) =>
+            <Question
+              key={index}
+              questionIndex={index}
+              data={question}
+              onQuestionSelected={this.onQuestionSelected} />
+            )}
         </div>
       </div>
     );
@@ -32,6 +56,7 @@ class Question extends React.Component {
 
   handleClick(index) {
     this.setState({ selectedIndex: index });
+    this.props.onQuestionSelected(this.props.questionIndex, index);
   }
 
   render() {
