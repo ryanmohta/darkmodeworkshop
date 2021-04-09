@@ -1,4 +1,5 @@
 import './Yams.css';
+import { yamQuestionData } from './YamQuestionData';
 
 function Yams() {
   return (
@@ -22,9 +23,9 @@ function Question() {
     <div className="Question">
       <h3>1. Question question question?</h3>
       <div className="row">
-        <button onClick={handleClick}>Button 1</button>
-        <button onClick={handleClick}>Button 2</button>
-        <button onClick={handleClick}>Button 3</button>
+        <button className="selected" onClick={handleClick}>Button 1</button>
+        <button className="correct" onClick={handleClick}>Button 2</button>
+        <button className="incorrect" onClick={handleClick}>Button 3</button>
         <button onClick={handleClick}>Button 4</button>
       </div>
     </div>

@@ -25,6 +25,23 @@
         background: rgba(0, 0, 0, 0.05);
         cursor: pointer;
       }
+
+      &.selected {
+        border-color: rgb(247, 145, 116);
+        background: rgba(247, 145, 116, 0.1);
+      }
+
+      &.correct {
+        border-color: rgb(107, 217, 98);
+        background: rgba(107, 217, 98, 0.1);
+      }
+
+      &.incorrect {
+        border-color: rgb(230, 93, 81);
+        background: rgba(230, 93, 81, 0.1);
+      }
+
+
     }
   }
 }
