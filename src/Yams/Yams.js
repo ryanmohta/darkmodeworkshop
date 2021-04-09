@@ -5,7 +5,10 @@ import { yamQuestionData } from './YamQuestionData';
 class Yams extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { selectedAnswers: new Array(10).fill(undefined) };
+    this.state = {
+      selectedAnswers: new Array(10).fill(undefined),
+      submitted: false
+    };
   }
 
   onQuestionSelected = (questionIndex, selectedIndex) => {
@@ -25,6 +28,10 @@ class Yams extends React.Component {
     });
   };
 
+  submit = () => {
+    this.setState({submitted: true});
+  }
+
 
   render() {
     return (
@@ -40,15 +47,33 @@ class Yams extends React.Component {
               key={index}
               questionIndex={index}
               data={question}
-              onQuestionSelected={this.onQuestionSelected} />
+              onQuestionSelected={this.onQuestionSelected}
+              submitted={this.state.submitted} />
             )}
         </div>
         <div className="results">
-          <button>How'd I do?</button>
+          <button onClick={this.submit}>How'd I do?</button>
         </div>
       </div>
     );
   }
+}
+
+function getClassName(props, state, index) {
+  if (props.submitted) {
+    if (props.data.correctAnswerIndex === index) {
+      return 'correct';
+    }
+    else if (state.selectedIndex === index) {
+      return 'incorrect';
+    }
+  }
+  else {
+    if (state.selectedIndex === index) {
+      return 'selected';
+    }
+  }
+  return '';
 }
 
 class Question extends React.Component {
@@ -70,8 +95,8 @@ class Question extends React.Component {
           { this.props.data.answers.map((answer, index) =>
             <button
               key={index}
-              className={ this.state.selectedIndex === index ? 'selected' : '' }
-              onClick={() => this.handleClick(index)}
+              className={getClassName(this.props, this.state, index)}
+              onClick={ () => this.handleClick(index) }
             >{ answer }</button>
           )}
         </div>
