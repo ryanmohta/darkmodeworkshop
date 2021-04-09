@@ -30,6 +30,17 @@ class Yams extends React.Component {
 
   submit = () => {
     this.setState({submitted: true});
+
+  }
+
+  calculateScore = () => {
+    let score = 0;
+    for (var i = 0; i < this.state.selectedAnswers.length; i++) {
+      if (this.state.selectedAnswers[i] === yamQuestionData[i].correctAnswerIndex) {
+        score++;
+      }
+    }
+    return score;
   }
 
 
@@ -52,7 +63,7 @@ class Yams extends React.Component {
             )}
         </div>
         <div className="results">
-          <button onClick={this.submit}>How'd I do?</button>
+          <button onClick={this.submit}>{this.state.submitted ? `${this.calculateScore()}/10 correct!` : "How'd I do?"}</button>
         </div>
       </div>
     );
