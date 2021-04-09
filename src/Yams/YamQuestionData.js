@@ -4,8 +4,8 @@ export const yamQuestionData = [
     answers: [
       "Fruit",
       "Vegetable",
-      "Juice",
-      "Water"
+      "Mango",
+      "Juice"
     ],
     correctAnswerIndex: 1
   },

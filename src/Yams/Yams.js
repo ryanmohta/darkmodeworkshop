@@ -44,6 +44,24 @@ class Yams extends React.Component {
     return score;
   }
 
+  toggleDarkMode = () => {
+    if(document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+    }
+    else {
+      document.documentElement.classList.remove("light");
+      document.documentElement.classList.add("dark");
+    }
+//     if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+//
+//       document.body.classList.add("dark")
+//   /* The viewport is less than, or equal to, 700 pixels wide */
+// } else {
+//   /* The viewport is greater than 700 pixels wide */
+// }
+  }
+
 
   render() {
     return (
@@ -53,7 +71,8 @@ class Yams extends React.Component {
           <h1>YAMS?</h1>
           <h2>By Ryam</h2>
         </div>
-        <img className="yam-image" src={yams}/>
+        <img onClick={this.toggleDarkMode} className="yam-image" src={yams}/>
+
         <div className="questions">
           { yamQuestionData.map((question, index) =>
             <Question
