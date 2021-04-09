@@ -1,0 +1,17 @@
+.Yams .header {
+  color: blue;
+}
+
+.Question .row {
+  display: flex;
+}
+.Question button {
+  flex-grow: 1;
+  background: none;
+  font-size: 24px;
+  padding: 12px 24px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+}
+
+/*# sourceMappingURL=Yams.css.map */
