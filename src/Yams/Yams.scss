@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&display=swap');
 .Yams {
   button {
     font-size: 24px;
@@ -15,6 +16,20 @@
 
   .header, .results {
     text-align: center;
+  }
+
+  .header {
+    font-family: 'Londrina Solid', sans-serif;
+    font-size: 24px;
+    color: rgb(247, 145, 116);
+
+    * {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 72px;
+    }
   }
 
   .results {
