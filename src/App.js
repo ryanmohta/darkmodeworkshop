@@ -44,21 +44,27 @@ class App extends React.Component {
   }
 
   toggleDarkMode = () => {
-    if(document.documentElement.classList.contains("dark")) {
+    if (document.documentElement.classList.contains("dark")) {
+      // The user has manually selected dark mode.
       document.documentElement.classList.remove("dark");
       document.documentElement.classList.add("light");
     }
-    else {
+    else if (document.documentElement.classList.contains("light")) {
+      // The user has manually selected light mode.
       document.documentElement.classList.remove("light");
       document.documentElement.classList.add("dark");
     }
-//     if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-//
-//       document.body.classList.add("dark")
-//   /* The viewport is less than, or equal to, 700 pixels wide */
-// } else {
-//   /* The viewport is greater than 700 pixels wide */
-// }
+    else {
+      // The user hasn't manually configured light or dark mode
+      // yet, so we have to check what theme the operating system
+      // is set to.
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.classList.add("light");
+      }
+      else {
+        document.documentElement.classList.add("dark");
+      }
+    }
   }
 
 

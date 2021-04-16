@@ -32,6 +32,7 @@
   margin: auto;
   width: 50%;
   margin-bottom: 64px;
+  cursor: pointer;
 }
 .App .results {
   margin-bottom: 64px;
