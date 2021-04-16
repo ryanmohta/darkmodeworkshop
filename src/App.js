@@ -70,7 +70,7 @@ class App extends React.Component {
           <h1>YAMS?</h1>
           <h2>By Ryam</h2>
         </div>
-        <img onClick={this.toggleDarkMode} className="yam-image" src={yams}/>
+        <img onClick={this.toggleDarkMode} className="yam-image" src={yams} alt="lots of yams mmmm"/>
 
         <div className="questions">
           { yamQuestionData.map((question, index) =>
