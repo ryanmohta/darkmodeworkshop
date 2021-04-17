@@ -1,29 +1,74 @@
+// This is a "partial" file (which is denoted by the leading
+// underscore in the file name), meaning that the file is used
+// as part of another Sass file and shouldn't be compiled to
+// CSS on its own. In this case, it's being used in the
+// index.scss file.
+
+// A "mixin" is a piece of CSS code that can be injected inside
+// of another (usually larger) piece of CSS! (think import/include
+// statements in other languages). Here we make a mixin for styles
+// that should only apply in light mode and another for styles only
+// for dark mode.
 @mixin light {
   body {
     --background-color: white;
-    --primary-color: black;
-    --secondary-color: rgba(0, 0, 0, 0.3);
-    --tertiary-color: rgba(0, 0, 0, 0.05);
+
+    // This is the base shade that all the other colors are based
+    // off of. Doing it this way means that if you change the base
+    // color, all of the other colors using it will change automatically.
+    --foreground-color: 0, 0, 0;
+    --foreground-color-primary: rgb(var(--foreground-color));
+    --foreground-color-secondary: rgba(var(--foreground-color), 0.3);
+    --foreground-color-tertiary: rgba(var(--foreground-color), 0.05);
   }
 }
 
 @mixin dark {
   body {
+    // Notice this color isn't entirely black!! It's important not
+    // to make the contrast between the background and text color
+    // super staggering in dark mode so we don't cause eye strain.
     --background-color: rgb(13, 17, 23);
-    --primary-color: rgba(255, 255, 255, 0.7);
-    --secondary-color: rgba(255, 255, 255, 0.3);
-    --tertiary-color: rgba(255, 255, 255, 0.05);
+
+    --foreground-color: 255, 255, 255;
+    --foreground-color-primary: rgba(var(--foreground-color), 0.7);
+    --foreground-color-secondary: rgba(var(--foreground-color), 0.3);
+    --foreground-color-tertiary: rgba(var(--foreground-color), 0.05);
   }
 }
 
+
+body {
+  --yam-color: 247, 145, 116;
+  --yam-color-primary: rgb(var(--yam-color));
+  --yam-color-secondary: rgba(var(--yam-color), 0.1);
+
+  --correct-color: 107, 217, 98;
+  --correct-color-primary: rgb(var(--correct-color));
+  --correct-color-secondary: rgba(var(--correct-color), 0.1);
+
+  --incorrect-color: 230, 93, 81;
+  --incorrect-color-primary: rgb(var(--incorrect-color));
+  --incorrect-color-secondary: rgba(var(--incorrect-color), 0.1);
+}
+
+// These are what are known as "media queries", styles you can
+// apply based on the user's device settings. We're using a
+// media query called "prefers-color-scheme" to determine
+// whether the user's operating system is in light mode or dark
+// mode, and setting the website's mode to match.
 @media (prefers-color-scheme: light) {
   @include light;
 
+  // However, if the user wants to override the default setting,
+  // we can accommodate that here. In this case adding a "dark"
+  // class to the website's HTML element means the user has
+  // specifically requested dark mode, and this similarly applies
+  // to the "light" class below.
   html.dark {
     @include dark;
   }
 }
-
 
 @media (prefers-color-scheme: dark) {
   @include dark;
