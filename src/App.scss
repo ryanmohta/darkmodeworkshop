@@ -4,15 +4,15 @@
     padding: 12px 24px;
     margin: 0 8px;
     background: none;
-    border: 2px solid rgba(0, 0, 0, 0.3);
-    color: rgb(0, 0, 0);
+    border: 2px solid var(--foreground-color-secondary);
+    color: var(--foreground-color-primary);
     border-radius: 12px;
 
     // The "&" symbol is a special Sass construct that refers to
     // the parent item. So in this case &:hover means the same
     // thing as button:hover (but makes the intent more clear).
     &:hover {
-      background: rgba(0, 0, 0, 0.05);
+      background: var(--foreground-color-tertiary);
       cursor: pointer;
     }
   }
@@ -24,7 +24,7 @@
   .header {
     font-family: 'Londrina Solid', sans-serif;
     font-size: 24px;
-    color: rgb(247, 145, 116);
+    color: var(--yam-color-primary);
     margin-bottom: 64px;
 
     * {
@@ -64,18 +64,18 @@
       flex-grow: 1;
 
       &.selected {
-        border-color: rgb(247, 145, 116);
-        background: rgba(247, 145, 116, 0.1);
+        border-color: var(--yam-color-primary);
+        background: var(--yam-color-secondary);
       }
 
       &.correct {
-        border-color: rgb(107, 217, 98);
-        background: rgba(107, 217, 98, 0.1);
+        border-color: var(--correct-color-primary);
+        background: var(--correct-color-secondary);
       }
 
       &.incorrect {
-        border-color: rgb(230, 93, 81);
-        background: rgba(230, 93, 81, 0.1);
+        border-color: var(--incorrect-color-primary);
+        background: var(--incorrect-color-secondary);
       }
     }
   }

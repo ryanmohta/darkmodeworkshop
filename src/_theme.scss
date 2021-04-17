@@ -1,0 +1,51 @@
+@mixin light {
+  body {
+    --background-color: white;
+
+    --foreground-color: 0, 0, 0;
+    --foreground-color-primary: rgb(var(--foreground-color));
+    --foreground-color-secondary: rgba(var(--foreground-color), 0.3);
+    --foreground-color-tertiary: rgba(var(--foreground-color), 0.05);
+  }
+}
+
+@mixin dark {
+  body {
+    --background-color: rgb(13, 17, 23);
+
+    --foreground-color: 255, 255, 255;
+    --foreground-color-primary: rgba(var(--foreground-color), 0.7);
+    --foreground-color-secondary: rgba(var(--foreground-color), 0.3);
+    --foreground-color-tertiary: rgba(var(--foreground-color), 0.05);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  @include light;
+
+  html.dark {
+    @include dark;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark;
+
+  html.light {
+    @include light;
+  }
+}
+
+body {
+  --yam-color: 247, 145, 116;
+  --yam-color-primary: rgb(var(--yam-color));
+  --yam-color-secondary: rgba(var(--yam-color), 0.1);
+
+  --correct-color: 255, 199, 222;
+  --correct-color-primary: rgb(var(--correct-color));
+  --correct-color-secondary: rgba(var(--correct-color), 0.1);
+
+  --incorrect-color: 255, 247, 140;
+  --incorrect-color-primary: rgb(var(--incorrect-color));
+  --incorrect-color-secondary: rgba(var(--incorrect-color), 0.1);
+}
