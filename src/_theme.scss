@@ -1,20 +1,25 @@
 @mixin light {
   body {
     --background-color: white;
-    --primary-color: black;
-    --secondary-color: rgba(0, 0, 0, 0.3);
-    --tertiary-color: rgba(0, 0, 0, 0.05);
+
+    --foreground-color: 0, 0, 0;
+    --foreground-color-primary: rgb(var(--foreground-color));
+    --foreground-color-secondary: rgba(var(--foreground-color), 0.3);
+    --foreground-color-tertiary: rgba(var(--foreground-color), 0.05);
   }
 }
 
 @mixin dark {
   body {
     --background-color: rgb(13, 17, 23);
-    --primary-color: rgba(255, 255, 255, 0.7);
-    --secondary-color: rgba(255, 255, 255, 0.3);
-    --tertiary-color: rgba(255, 255, 255, 0.05);
+
+    --foreground-color: 255, 255, 255;
+    --foreground-color-primary: rgba(var(--foreground-color), 0.7);
+    --foreground-color-secondary: rgba(var(--foreground-color), 0.3);
+    --foreground-color-tertiary: rgba(var(--foreground-color), 0.05);
   }
 }
+
 
 body {
   --yam-color: 247, 145, 116;
@@ -28,8 +33,8 @@ body {
   --incorrect-color: 230, 93, 81;
   --incorrect-color-primary: rgb(var(--incorrect-color));
   --incorrect-color-secondary: rgba(var(--incorrect-color), 0.1);
-
 }
+
 
 @media (prefers-color-scheme: light) {
   @include light;
@@ -38,7 +43,6 @@ body {
     @include dark;
   }
 }
-
 
 @media (prefers-color-scheme: dark) {
   @include dark;
