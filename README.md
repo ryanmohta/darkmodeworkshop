@@ -19,7 +19,7 @@ Navigate to the root folder of the repository using the command line, and once t
 Additionally, we'll be using a CSS preprocessor called _Sass_ for the workshop (more on that in a bit!). Install it by typing `npm install -g sass` into the command line.
 
 ## Run the code
-Initialize our CSS files by typing `sass --watch src:src` (also more on what that command does in a bit!). The repo should now contain both several `.scss` files and several `.css` files.
+Initialize our CSS files by typing `sass --watch src:src` (also more on what that command does in a bit!). The src folder of the repo should now contain both several `.scss` files and several `.css` files.
 
 Then, open up a separate command line window, navigate to the repository, and type in `npm start`. After a few seconds, the website should open in a browser tab! Keep the process running — now, whenever you make a change to the code and save it, the website should automatically update!
 
