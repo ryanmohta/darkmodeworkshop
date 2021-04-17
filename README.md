@@ -16,7 +16,9 @@ Check if you already have Node.js and npm installed by typing `node -v` and `npm
 ## Install the dependencies for the repository
 Navigate to the root folder of the repository using the command line, and once there type in `npm install`. This will install React and all of the dependencies React depends on (this may take a minute). Once that's done, ensure a folder called `node_modules` got created and it contains a _lot_ of subfolders (each subfolder is a module that is used by React!).
 
-## Run the code
-Type in `npm start` into the command line. After a few seconds, the website should open in a browser tab! Keep the process running — now, whenever you make a change to the code and save it, the website should automatically update!
+Additionally, we'll be using a CSS preprocessor called _Sass_ for the workshop (more on that in a bit!). Install it by typing `npm install -g sass` into the command line.
 
-***Want to see the finished product? Switch to the "solution" branch!***
+## Run the code
+Initialize our CSS files by typing `sass --watch src:src` (also more on what that command does in a bit!). The src folder of the repo should now contain both several `.scss` files and several `.css` files.
+
+Then, open up a separate command line window, navigate to the repository, and type in `npm start`. After a few seconds, the website should open in a browser tab! Keep the process running — now, whenever you make a change to the code and save it, the website should automatically update!
