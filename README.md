@@ -19,4 +19,4 @@ Navigate to the root folder of the repository using the command line, and once t
 ## Run the code
 Type in `npm start` into the command line. After a few seconds, the website should open in a browser tab! Keep the process running — now, whenever you make a change to the code and save it, the website should automatically update!
 
-***Want to see the finished product? Switch to the "solution" branch***
+***Want to see the finished product? Switch to the "solution" branch!***
