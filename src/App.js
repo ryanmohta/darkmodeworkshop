@@ -44,27 +44,7 @@ class App extends React.Component {
   }
 
   toggleDarkMode = () => {
-    if (document.documentElement.classList.contains("dark")) {
-      // The user has manually selected dark mode.
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-    }
-    else if (document.documentElement.classList.contains("light")) {
-      // The user has manually selected light mode.
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
-    }
-    else {
-      // The user hasn't manually configured light or dark mode
-      // yet, so we have to check what theme the operating system
-      // is set to.
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        document.documentElement.classList.add("light");
-      }
-      else {
-        document.documentElement.classList.add("dark");
-      }
-    }
+    // TODO: fill this out
   }
 
 

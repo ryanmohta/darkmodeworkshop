@@ -1,11 +1,8 @@
-// The @use keyword specifies that we want to add the _theme partial file
-// to the top of this file.
-@use 'theme';
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&display=swap');
 
 body {
-  background-color: var(--background-color);
-  color: var(--foreground-color-primary);
+  background-color: white;
+  color: rgb(0, 0, 0);
   margin: 72px auto;
   width: 80vw;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
