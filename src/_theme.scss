@@ -16,6 +16,21 @@
   }
 }
 
+body {
+  --yam-color: 247, 145, 116;
+  --yam-color-primary: rgb(var(--yam-color));
+  --yam-color-secondary: rgba(var(--yam-color), 0.1);
+
+  --correct-color: 107, 217, 98;
+  --correct-color-primary: rgb(var(--correct-color));
+  --correct-color-secondary: rgba(var(--correct-color), 0.1);
+
+  --incorrect-color: 230, 93, 81;
+  --incorrect-color-primary: rgb(var(--incorrect-color));
+  --incorrect-color-secondary: rgba(var(--incorrect-color), 0.1);
+
+}
+
 @media (prefers-color-scheme: light) {
   @include light;
 

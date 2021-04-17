@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&display=swap');
 .App {
+  // --primary-color, --secondary-color, and --tertiary-color
+  // are declared in _theme.scss.
   button {
     font-size: 24px;
     padding: 12px 24px;
@@ -9,6 +10,9 @@
     color: var(--primary-color);
     border-radius: 12px;
 
+    // The "&" symbol is a special Sass construct that refers to
+    // the parent item. So in this case &:hover means the same
+    // thing as button:hover.
     &:hover {
       background: var(--tertiary-color);
       cursor: pointer;
@@ -62,18 +66,18 @@
       flex-grow: 1;
 
       &.selected {
-        border-color: rgb(247, 145, 116);
-        background: rgba(247, 145, 116, 0.1);
+        border-color: var(--yam-color-primary);
+        background: var(--yam-color-secondary);
       }
 
       &.correct {
-        border-color: rgb(107, 217, 98);
-        background: rgba(107, 217, 98, 0.1);
+        border-color: var(--correct-color-primary);
+        background: var(--correct-color-secondary);
       }
 
       &.incorrect {
-        border-color: rgb(230, 93, 81);
-        background: rgba(230, 93, 81, 0.1);
+        border-color: var(--incorrect-color-primary);
+        background: var(--incorrect-color-secondary);
       }
     }
   }

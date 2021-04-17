@@ -76,6 +76,12 @@ class App extends React.Component {
           <h1>YAMS?</h1>
           <h2>By Ryam</h2>
         </div>
+        {
+          // Clicking on the image toggles between dark and light mode.
+          // There are other ways to accomplish this too such as with an
+          // on/off toggle switch or a menu item, but hey who doesn't like
+          // an Easter egg?
+        }
         <img onClick={this.toggleDarkMode} className="yam-image" src={yams} alt="lots of yams mmmm"/>
 
         <div className="questions">
