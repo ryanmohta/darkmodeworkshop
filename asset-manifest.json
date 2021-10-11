@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/darkmodeworkshop/static/css/main.27ecb214.chunk.css",
+    "main.js": "/darkmodeworkshop/static/js/main.32ac129d.chunk.js",
+    "main.js.map": "/darkmodeworkshop/static/js/main.32ac129d.chunk.js.map",
+    "runtime-main.js": "/darkmodeworkshop/static/js/runtime-main.1150afd7.js",
+    "runtime-main.js.map": "/darkmodeworkshop/static/js/runtime-main.1150afd7.js.map",
+    "static/js/2.acb00174.chunk.js": "/darkmodeworkshop/static/js/2.acb00174.chunk.js",
+    "static/js/2.acb00174.chunk.js.map": "/darkmodeworkshop/static/js/2.acb00174.chunk.js.map",
+    "static/js/3.46c51031.chunk.js": "/darkmodeworkshop/static/js/3.46c51031.chunk.js",
+    "static/js/3.46c51031.chunk.js.map": "/darkmodeworkshop/static/js/3.46c51031.chunk.js.map",
+    "index.html": "/darkmodeworkshop/index.html",
+    "static/css/main.27ecb214.chunk.css.map": "/darkmodeworkshop/static/css/main.27ecb214.chunk.css.map",
+    "static/js/2.acb00174.chunk.js.LICENSE.txt": "/darkmodeworkshop/static/js/2.acb00174.chunk.js.LICENSE.txt",
+    "static/media/yams.c593bd39.jpg": "/darkmodeworkshop/static/media/yams.c593bd39.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1150afd7.js",
+    "static/js/2.acb00174.chunk.js",
+    "static/css/main.27ecb214.chunk.css",
+    "static/js/main.32ac129d.chunk.js"
+  ]
+}
