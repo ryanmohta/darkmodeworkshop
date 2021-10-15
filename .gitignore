@@ -25,3 +25,5 @@ yarn-error.log*
 # css files
 *.css
 *.css.map
+
+package-lock.json
