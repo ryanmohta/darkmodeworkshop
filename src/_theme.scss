@@ -10,34 +10,30 @@
 // that should only apply in light mode and another for styles only
 // for dark mode.
 @mixin light {
-  body {
-    --background-color: white;
+  --background-color: white;
 
-    // This is the base shade that all the other colors are based
-    // off of. Doing it this way means that if you change the base
-    // color, all of the other colors using it will change automatically.
-    --foreground-color: 0, 0, 0;
-    --foreground-color-primary: rgb(var(--foreground-color));
-    --foreground-color-secondary: rgba(var(--foreground-color), 0.3);
-    --foreground-color-tertiary: rgba(var(--foreground-color), 0.05);
-  }
+  // This is the base shade that all the other colors are based
+  // off of. Doing it this way means that if you change the base
+  // color, all of the other colors using it will change automatically.
+  --foreground-color: 0, 0, 0;
+  --foreground-color-primary: rgb(var(--foreground-color));
+  --foreground-color-secondary: rgba(var(--foreground-color), 0.3);
+  --foreground-color-tertiary: rgba(var(--foreground-color), 0.05);
 }
 
 @mixin dark {
-  body {
-    // Notice this color isn't entirely black!! It's important not
-    // to make the contrast between the background and text color
-    // super staggering in dark mode so we don't cause eye strain.
-    --background-color: rgb(13, 17, 23);
+  // Notice this color isn't entirely black!! It's important not
+  // to make the contrast between the background and text color
+  // super staggering in dark mode so we don't cause eye strain.
+  --background-color: rgb(13, 17, 23);
 
-    --foreground-color: 255, 255, 255;
-    --foreground-color-primary: rgba(var(--foreground-color), 0.7);
-    --foreground-color-secondary: rgba(var(--foreground-color), 0.3);
-    --foreground-color-tertiary: rgba(var(--foreground-color), 0.05);
-  }
+  --foreground-color: 255, 255, 255;
+  --foreground-color-primary: rgba(var(--foreground-color), 0.7);
+  --foreground-color-secondary: rgba(var(--foreground-color), 0.3);
+  --foreground-color-tertiary: rgba(var(--foreground-color), 0.05);
 }
 
-
+// Styles that apply everywhere
 body {
   --yam-color: 247, 145, 116;
   --yam-color-primary: rgb(var(--yam-color));
@@ -58,7 +54,10 @@ body {
 // whether the user's operating system is in light mode or dark
 // mode, and setting the website's mode to match.
 @media (prefers-color-scheme: light) {
-  @include light;
+  // system light mode
+  html {
+    @include light;
+  }
 
   // However, if the user wants to override the default setting,
   // we can accommodate that here. In this case adding a "dark"
@@ -71,8 +70,12 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  @include dark;
+  // system dark mode
+  html {
+    @include dark;
+  }
 
+  // override if user selects light mode
   html.light {
     @include light;
   }

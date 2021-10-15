@@ -1,6 +1,7 @@
-// The @use keyword specifies that we want to add the _theme partial file
+// The @import keyword specifies that we want to add the _theme partial file
 // to the top of this file.
-@use 'theme';
+
+@import 'theme';
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&display=swap');
 
 body {

@@ -1,7 +1,11 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import yams from './yams.jpg';
-import { yamQuestionData } from './YamQuestionData';
+import questions from './questions';
+
+// our state
+// selectedAnswers: array of 10 elements that each have the selected index
+// submitted: boolean
 
 class App extends React.Component {
   constructor(props) {
@@ -14,29 +18,26 @@ class App extends React.Component {
 
   onQuestionSelected = (questionIndex, selectedIndex) => {
     this.setState(state => {
-      const selectedAnswers = state.selectedAnswers.map((item, j) => {
-        if (j === questionIndex) {
+      const selectedAnswers = state.selectedAnswers.map((item, index) => {
+        if (index == questionIndex) {
           return selectedIndex;
         }
         else {
           return item;
         }
       });
-
-      return {
-        selectedAnswers
-      };
+      return { selectedAnswers: selectedAnswers };
     });
-  };
+  }
 
   submit = () => {
-    this.setState({submitted: true});
+    this.setState({ submitted: true });
   }
 
   calculateScore = () => {
     let score = 0;
     for (var i = 0; i < this.state.selectedAnswers.length; i++) {
-      if (this.state.selectedAnswers[i] === yamQuestionData[i].correctAnswerIndex) {
+      if (this.state.selectedAnswers[i] == questions[i].correctAnswerIndex) {
         score++;
       }
     }
@@ -44,29 +45,28 @@ class App extends React.Component {
   }
 
   toggleDarkMode = () => {
-    if (document.documentElement.classList.contains("dark")) {
-      // The user has manually selected dark mode.
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
+    if (document.documentElement.classList.contains('dark')) {
+      // The user has manually selected dark mode
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
     }
-    else if (document.documentElement.classList.contains("light")) {
-      // The user has manually selected light mode.
-      document.documentElement.classList.remove("light");
-      document.documentElement.classList.add("dark");
+    else if (document.documentElement.classList.contains('light')) {
+      // The user has manually selected light mode
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
     }
     else {
-      // The user hasn't manually configured light or dark mode
-      // yet, so we have to check what theme the operating system
-      // is set to.
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        document.documentElement.classList.add("light");
+      // The user hasn't configured light or dark mode
+      // and they're just using their system settings
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // the user's system settings are dark mode
+        document.documentElement.classList.add('light');
       }
       else {
-        document.documentElement.classList.add("dark");
+        document.documentElement.classList.add('dark');
       }
     }
   }
-
 
   render() {
     return (
@@ -82,17 +82,19 @@ class App extends React.Component {
           // on/off toggle switch or a menu item, but hey who doesn't like
           // an Easter egg?
         }
-        <img onClick={this.toggleDarkMode} className="yam-image" src={yams} alt="lots of yams mmmm"/>
-
+        <img onClick={this.toggleDarkMode} className="yam-image" src={yams} alt='An image of yams by ryam'/>
         <div className="questions">
-          { yamQuestionData.map((question, index) =>
-            <Question
-              key={index}
-              questionIndex={index}
-              data={question}
-              onQuestionSelected={this.onQuestionSelected}
-              submitted={this.state.submitted} />
-            )}
+          { questions.map((question, index) =>
+              <Question
+                key={ index }
+                questionIndex={ index }
+                question={ question.question }
+                answers={ question.answers }
+                correctAnswerIndex={ question.correctAnswerIndex }
+                onQuestionSelected={ this.onQuestionSelected }
+                submitted={ this.state.submitted }
+              />
+          )}
         </div>
         <div className="results">
           <button onClick={this.submit}>{this.state.submitted ? `${this.calculateScore()}/10 correct!` : "How'd I do?"}</button>
@@ -102,27 +104,32 @@ class App extends React.Component {
   }
 }
 
-function getClassName(props, state, index) {
-  if (props.submitted) {
-    if (props.data.correctAnswerIndex === index) {
-      return 'correct';
-    }
-    else if (state.selectedIndex === index) {
-      return 'incorrect';
-    }
-  }
-  else {
-    if (state.selectedIndex === index) {
-      return 'selected';
-    }
-  }
-  return '';
-}
+// our props
+// question: string
+// answers: [string, string, string, string]
+
+// our state
+// selectedIndex: integer from 0 to 3 OR undefined
 
 class Question extends React.Component {
   constructor(props) {
     super(props);
     this.state = { selectedIndex: undefined };
+  }
+
+  getButtonClass(index) {
+    if (this.props.submitted) {
+      if (this.props.correctAnswerIndex == index) {
+        return 'correct';
+      }
+      else if (this.state.selectedIndex == index) {
+        return 'incorrect';
+      }
+    }
+    else if (this.state.selectedIndex == index) {
+      return 'selected';
+    }
+    return '';
   }
 
   handleClick(index) {
@@ -133,12 +140,12 @@ class Question extends React.Component {
   render() {
     return (
       <div className="Question">
-        <h3>{ this.props.data.question }</h3>
+        <h3>{ this.props.question }</h3>
         <div className="row">
-          { this.props.data.answers.map((answer, index) =>
+          { this.props.answers.map((answer, index) =>
             <button
-              key={index}
-              className={getClassName(this.props, this.state, index)}
+              key={ index }
+              className={this.getButtonClass(index)}
               onClick={ () => this.handleClick(index) }
             >{ answer }</button>
           )}

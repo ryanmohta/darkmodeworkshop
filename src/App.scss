@@ -1,86 +1,72 @@
-.App {
-  // --foreground-color-primary, --foreground-color-secondary, and --foreground-color-tertiary
-  // are all declared in _theme.scss.
-  button {
-    font-size: 24px;
-    padding: 12px 24px;
-    margin: 0 8px;
-    background: none;
-    border: 2px solid var(--foreground-color-secondary);
-    color: var(--foreground-color-primary);
-    border-radius: 12px;
+// All of our CSS variables are declard in _theme.scss
 
-    // The "&" symbol is a special Sass construct that refers to
-    // the parent item. So in this case &:hover means the same
-    // thing as button:hover (but makes the intent more clear).
-    &:hover {
-      background: var(--foreground-color-tertiary);
-      cursor: pointer;
-    }
-  }
+h1 {
+  font-size: 72px;
+}
 
-  .header, .results {
-    text-align: center;
-  }
+h3 {
+  font-weight: 500;
+}
 
-  .header {
-    font-family: 'Londrina Solid', sans-serif;
-    font-size: 24px;
-    color: var(--yam-color-primary);
-    margin-bottom: 64px;
+button {
+  flex-grow: 1;
+  font-size: 24px;
+  padding: 12px 24px;
+  margin: 0 8px;
+  background: none;
+  border: 2px solid var(--foreground-color-secondary);
+  color: var(--foreground-color-primary);
+  border-radius: 12px;
+}
 
-    * {
-      margin: 0;
-    }
+button:hover {
+  background: var(--foreground-color-tertiary);
+  cursor: pointer;
+}
 
-    h1 {
-      font-size: 72px;
-    }
-  }
+button.selected {
+  border-color: var(--yam-color-primary);
+  background: var(--yam-color-secondary);
+}
 
-  .yam-image {
-    display: block;
-    margin: auto;
-    width: 50%;
-    margin-bottom: 64px;
-    cursor: pointer;
-  }
+button.correct {
+  border-color: var(--correct-color-primary);
+  background: var(--correct-color-secondary);
+}
 
-  .results {
-    margin-bottom: 64px;
-  }
+button.incorrect {
+  border-color: var(--incorrect-color-primary);
+  background: var(--incorrect-color-secondary);
+}
 
+.header {
+  text-align: center;
+  font-family: 'Londrina Solid', sans-serif;
+  font-size: 24px;
+  color: var(--yam-color-primary);
+  margin-bottom: 64px;
+}
+
+.header * {
+  margin: 0;
+}
+
+.yam-image {
+  display: block;
+  margin: auto;
+  width: 50%;
+  margin-bottom: 64px;
+  cursor: pointer;
 }
 
 .Question {
   margin-bottom: 64px;
+}
 
-  h3 {
-    font-weight: 500;
-  }
+.row {
+  display: flex;
+}
 
-  .row {
-    display: flex;
-
-    button {
-      flex-grow: 1;
-
-      // These variables are also defined in _theme.scss,
-      // but are the same dark mode or not.
-      &.selected {
-        border-color: var(--yam-color-primary);
-        background: var(--yam-color-secondary);
-      }
-
-      &.correct {
-        border-color: var(--correct-color-primary);
-        background: var(--correct-color-secondary);
-      }
-
-      &.incorrect {
-        border-color: var(--incorrect-color-primary);
-        background: var(--incorrect-color-secondary);
-      }
-    }
-  }
+.results {
+  text-align: center;
 }
