@@ -1,4 +1,4 @@
-export const yamQuestionData = [
+const questions = [
   {
     question: "1. What kind of food is a yam?",
     answers: [
@@ -100,3 +100,5 @@ export const yamQuestionData = [
     correctAnswerIndex: 3
   },
 ];
+
+export default questions;
